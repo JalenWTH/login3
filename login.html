@@ -1,0 +1,37 @@
+{% extends 'login3/base.html' %}
+
+{% block title %}<title>Login</title>{% endblock %}
+
+{% block custom_style %}
+	<style type="text/css">
+		.form_box {
+			width:400px;
+			height:350px;
+		}
+
+		#fields_list {
+			list-style-type:none;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<body>
+	<div class='form_box'>
+		<h3 style='text-align:center;'>Login</h3><br>
+		<form method='post'>
+		{% csrf_token %}
+			<ul class='fields_list'>
+				<li><p>Email</p></li>
+				<li>{{form.username}}</li><br>
+				<li>{{form.password.label}}</li>
+				<li>{{form.password}}</li>
+			</ul>
+			<input type='submit' name='submit' id='submit' value='Submit'>
+			{% if form.errors %}
+				<h4 id='error'>The email or password you entered were incorrect</h4>
+			{% endif %}
+		</form>
+	</div>
+</body>
+{% endblock %}

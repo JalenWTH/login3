@@ -1,0 +1,43 @@
+{% extends 'login3/base.html' %}
+
+{% block title %}<title>Signup</title>{% endblock %}
+
+{% block custom_style %}
+	<style type="text/css">
+		.form_box {
+			width:400px;
+			height:700px;
+		}
+
+		#fields_list {
+			list-style-type:none;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<body>
+	<div class='form_box'>
+		<h3 style='text-align:center;'>Signup</h3>
+		<form method='post'>
+		{% csrf_token %}
+			<ul id='fields_list'>
+				<li>{{form.fname.label}}</li>
+				<li>{{form.fname}}</li><br>
+				<li>{{form.lname.label}}</li>
+				<li>{{form.lname}}</li><br>
+				<li>{{form.phone.label}}</li>
+				<li>{{form.phone}}</li><br>
+				<li>{{form.email.label}}</li>
+				<li>{{form.email}}</li><br>
+				<li>{{form.password.label}}</li>
+				<li>{{form.password}}</li>
+			</ul>
+			<input type='submit' name='submit' id='submit' value='Submit'>
+			{% for message in messages %}
+				<h4 id='message'>{{message}}</h4>
+			{% endfor %}
+		</form>
+	</div>
+</body>
+{% endblock %}
