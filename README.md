@@ -21,18 +21,18 @@ To view your Django version and make sure the installation worked, run:
 
 In any directory you want, run this command from the command line:
 
-`django-admin startproject projectname [directory]`
+`django-admin startproject login3 [directory]`
 
 The directory portion may be left blank if you want the project generated in place. This generates a new directory with all of your project files. Your project files are actually in a subdirectory of that directory with the same name. 
 
-`python manage.py startapp crud`
+`python manage.py startapp login3`
 
 This generates your app files. Next, go into your project directory and find your settings.py file. You'll need to add your ap to the installed apps list like:
 
 ```
 installed_apps=[
 ...,
-'crud',
+'login3',
 ...
 ]
 ```
@@ -45,13 +45,13 @@ You need to change your urls.py file for your **project** to tell it to include 
 from django.urls import path, include
 
 path('admin/', admin.site.urls),
-path('crud/', include('crud.urls')
+path('login3/', include('login3.urls')
 ```
 
-This will make sure that all url patterns from your app urls.py file are included and every path for the crud app starts with 'crud/'. After this, copy over the app files from this repository. You'll need to create some of them (urls.py, templates) along with some new directories. This is the app directory structure
+This will make sure that all url patterns from your app urls.py file are included and every path for the crud app starts with 'login3/'. After this, copy over the app files from this repository. You'll need to create some of them (urls.py, templates) along with some new directories. This is the app directory structure
 
 ```
-crud 
+login3
   urls.py
   views.py
   models.py
